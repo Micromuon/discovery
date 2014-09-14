@@ -9,6 +9,8 @@ var onErr = function(err) {
     console.log(err);
 }
 
+pubsubChannel.emit("discovery:bootSuccess", {message: "booted"};
+
 pubsubChannel.on("discovery:getInfo", function(data) {
     db.open(function(err, db) {
         if (!err) {
