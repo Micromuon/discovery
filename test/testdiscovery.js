@@ -11,7 +11,7 @@ var postData = {"name": "testservice",
                 "url": "gitlab@git.bskyb.com:sea-microservices/microservices-testservice.git",
                 "path": "repos/sea-microservices/microservices-testservice",
                 "status": "deployed",
-                "port": "null"}
+                }
 
 require("../discovery");
 
@@ -41,9 +41,10 @@ describe("test discovery: ", function() {
             var result = data.serviceInfo;
             for (var i = 0; i < result.length; i++) {
                 delete result[i]["_id"];
+                console.log("data:");
+                console.log(result);
             }
             if ( equals([postData], result) ) {
-                console.log(data);
                 done();
             } else {
                 console.log("Incorrect Data: " + JSON.stringify(result));
